@@ -35,9 +35,9 @@ Route::group(['middleware'=>['guest']],function (){
     Route::get('login',[LoginController::class,'index'])->name('login');
     Route::post('login',[LoginController::class,'login']);
     Route::get('register',[RegisterController::class,'index'])->name('register');
-    Route::post('register',[RegisterController::class,'store']); 
+    Route::post('register',[RegisterController::class,'store']);
 
-   
+
 
     Route::get('forgot-password',[ForgotPasswordController::class,'index'])->name('forgot-password');
     Route::post('forgot-password',[ForgotPasswordController::class,'reset']);
@@ -109,10 +109,12 @@ Route::group(['middleware'=>['auth']],function (){
     Route::get('reports',[ReportController::class,'index'])->name('reports');
     Route::post('reports',[ReportController::class,'getData']);
 
-    
+
     Route::get('backup', [BackupController::class,'index'])->name('backup.index');
     Route::put('backup/create', [BackupController::class,'create'])->name('backup.store');
     Route::get('backup/download/{file_name?}', [BackupController::class,'download'])->name('backup.download');
     Route::delete('backup/delete/{file_name?}', [BackupController::class,'destroy'])->where('file_name', '(.*)')->name('backup.destroy');
+
+
 });
 
