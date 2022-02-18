@@ -52,6 +52,6 @@ class User extends Authenticatable
     {
         return 'users.'.$this->id;
     }
-    
-    
+
+
 }
