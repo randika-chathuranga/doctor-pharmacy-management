@@ -36,12 +36,11 @@ Route::group(['middleware'=>['guest']],function (){
     Route::post('login',[LoginController::class,'login']);
     Route::get('register',[RegisterController::class,'index'])->name('register');
     Route::post('register',[RegisterController::class,'store']);
-
-
-
     Route::get('forgot-password',[ForgotPasswordController::class,'index'])->name('forgot-password');
     Route::post('forgot-password',[ForgotPasswordController::class,'reset']);
 });
+
+
 
 Route::group(['middleware'=>['auth']],function (){
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -114,7 +113,6 @@ Route::group(['middleware'=>['auth']],function (){
     Route::put('backup/create', [BackupController::class,'create'])->name('backup.store');
     Route::get('backup/download/{file_name?}', [BackupController::class,'download'])->name('backup.download');
     Route::delete('backup/delete/{file_name?}', [BackupController::class,'destroy'])->where('file_name', '(.*)')->name('backup.destroy');
-
 
 });
 
